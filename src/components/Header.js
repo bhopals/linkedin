@@ -17,7 +17,7 @@ const Header = (props) => {
                 </Search>
                 <Nav>
                     <NavListWarp>
-                        <NavList>
+                        <NavList className="active">
                             <a>
                                 <img src="/images/nav-home.svg" alt="" />
                                 <span>Home</span>
@@ -133,6 +133,20 @@ const NavListWarp = styled.ul`
     display: flex;
     flex-wrap: nowrap;
     list-style-type: none;
+
+    .active {
+        span:after {
+            content: "";
+            transform: scaleX(1);
+            border-bottom: 2px solid var(--white, #fff);
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            transition: transform 0.2s ease-in-out;
+            width: 100%;
+            border-color: rgba(0, 0, 0, 0.9);
+        }
+    }
 `;
 
 const NavList = styled.li`
