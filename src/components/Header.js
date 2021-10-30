@@ -16,7 +16,7 @@ const Header = (props) => {
                     </SearchIcon>
                 </Search>
                 <Nav>
-                    <NavListWarp>
+                    <NavListWrap>
                         <NavList className="active">
                             <a>
                                 <img src="/images/nav-home.svg" alt="" />
@@ -47,7 +47,7 @@ const Header = (props) => {
                                 <span>Notifications</span>
                             </a>
                         </NavList>
-                    </NavListWarp>
+                    </NavListWrap>
                 </Nav>
             </Content>
         </Container>
@@ -129,7 +129,7 @@ const Nav = styled.nav`
     }
 `;
 
-const NavListWarp = styled.ul`
+const NavListWrap = styled.ul`
     display: flex;
     flex-wrap: nowrap;
     list-style-type: none;
@@ -161,9 +161,10 @@ const NavList = styled.li`
         font-weight: 400;
         justify-content: center;
         line-height: 1.5;
-        min-height: 42px;
+        min-height: 52px;
         min-width:  80px;
         text-decoration: none;
+        position: relative;
 
         span {
             color: rgba(0, 0, 0, 0.6);
@@ -184,6 +185,42 @@ const NavList = styled.li`
         }
     }
 `;
+// const NavList = styled.li`
+//   display: flex;
+//   align-items: center;
+//   a {
+//     align-items: center;
+//     background: transparent;
+//     display: flex;
+//     flex-direction: column;
+//     font-size: 12px;
+//     font-weight: 400;
+//     justify-content: center;
+//     line-height: 1.5;
+//     min-height: 52px;
+//     min-width: 80px;
+//     position: relative;
+//     text-decoration: none;
 
+//     span {
+//       color: rgba(0, 0, 0, 0.6);
+//       display: flex;
+//       align-items: center;
+//     }
+
+//     @media (max-width: 768px) {
+//       min-width: 70px;
+//     }
+//   }
+
+//   &:hover,
+//   &:active {
+//     a {
+//       span {
+//         color: rgba(0, 0, 0, 0.9);
+//       }
+//     }
+//   }
+// `;
 
 export default Header;
