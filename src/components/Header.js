@@ -47,6 +47,20 @@ const Header = (props) => {
                                 <span>Notifications</span>
                             </a>
                         </NavList>
+                        <User>
+                            <a>
+                                <img src="/images/user.svg" alt="" />
+                                <span>Me</span>
+                                <img src="/images/down-icon.svg" alt="" />
+                            </a>
+                        </User>
+                        <Work>
+                            <a>
+                                <img src="/images/nav-work.svg" alt="" />
+                                <span>Work</span>
+                                <img src="/images/down-icon.svg" alt="" />
+                            </a>     
+                        </Work>
                     </NavListWrap>
                 </Nav>
             </Content>
@@ -185,42 +199,21 @@ const NavList = styled.li`
         }
     }
 `;
-// const NavList = styled.li`
-//   display: flex;
-//   align-items: center;
-//   a {
-//     align-items: center;
-//     background: transparent;
-//     display: flex;
-//     flex-direction: column;
-//     font-size: 12px;
-//     font-weight: 400;
-//     justify-content: center;
-//     line-height: 1.5;
-//     min-height: 52px;
-//     min-width: 80px;
-//     position: relative;
-//     text-decoration: none;
 
-//     span {
-//       color: rgba(0, 0, 0, 0.6);
-//       display: flex;
-//       align-items: center;
-//     }
+const User = styled(NavList)`
+    a > svg {
+      width: 24px;
+      border-radius: 50%;
+    }
+    a > img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+`;
 
-//     @media (max-width: 768px) {
-//       min-width: 70px;
-//     }
-//   }
+const Work = styled(User)`
 
-//   &:hover,
-//   &:active {
-//     a {
-//       span {
-//         color: rgba(0, 0, 0, 0.9);
-//       }
-//     }
-//   }
-// `;
+`;
 
 export default Header;
