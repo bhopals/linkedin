@@ -200,6 +200,7 @@ const NavList = styled.li`
     }
 `;
 
+
 const User = styled(NavList)`
     a > svg {
       width: 24px;
