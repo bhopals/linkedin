@@ -100,7 +100,6 @@ const Photo = styled.div`
 
 `;
 
-
 const Link = styled.div`
     font-size: 16px;
     line-height:1.5;
@@ -116,7 +115,6 @@ const AddPhotoText = styled.div`
     font-weight: 400;
 
 `;
-
 
 const Widget = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -174,7 +172,6 @@ const Item = styled.div`
         background-color: rgba(0, 0, 0, 0.8)
     }
 `;
-
 
 const CommunityCard = styled(ArtCard)`
     padding: 8px 0 0;
