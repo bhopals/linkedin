@@ -103,6 +103,7 @@ const ShareBox = styled(CommonCard)`
           border-radius: 50%;
           margin: 0 4px 0 -2px;
         }
+
         span {
           color: #70b5f9;
         }
