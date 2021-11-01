@@ -69,6 +69,7 @@ const ShareBox = styled(CommonCard)`
       align-items: center;
       font-weight: 600;
     }
+
     &:first-child {
       display: flex;
       align-items: center;
@@ -88,6 +89,7 @@ const ShareBox = styled(CommonCard)`
         text-align: left;
       }
     }
+
     &:nth-child(2) {
       display: flex;
       flex-wrap: wrap;
