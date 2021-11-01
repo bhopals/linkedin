@@ -45,6 +45,13 @@ const Main = (props) => {
               <img src="/images/ellipsis.png" alt="" />
             </button>
           </SharedActor>
+          <Description>
+            <SharedImg>
+              <a>
+                <img src="/images/shared-image.png" alt="" />
+              </a>
+            </SharedImg>
+          </Description>
         </Article>
       </div>
     </Container>
@@ -139,6 +146,74 @@ const SharedActor = styled.div`
   padding-right: 40px;
   flex-wrap: nowrap;
   padding: 12px 16px 0;
+  margin-bottom: 8px;
+  align-items: center;
+  display: flex;
+  a {
+    margin-right: 12px;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    text-decoration: none;
+    img {
+      width: 48px;
+      height: 48px;
+    }
+    & > div {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: 0;
+      margin-left: 8px;
+      span {
+        text-align: left;
+        &:first-child {
+          font-size: 15px;
+          font-weight: 700;
+          color: rgba(0, 0, 0, 1);
+        }
+
+        &:nth-child(n + 1) {
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    img {
+      width: 28px;
+    }
+  }
+`;
+
+const Description = styled.div`
+  padding: 0 16px;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 14px;
+  text-align: left;
+`;
+
+const SharedImg = styled.div`
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+  position: relative;
+  background-color: #f9fafb;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 `;
 
 export default Main;
