@@ -261,8 +261,8 @@ const SocialCounts = styled.ul`
     button {
       display: flex;
       img {
-        width: 28px;
-        height: 28px;
+        width: 20px;
+        height: 20px;
       }
     }
   }
