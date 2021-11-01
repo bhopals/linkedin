@@ -18,15 +18,12 @@ export function signInAPI() {
   };
 }
 
-// export function signInAPI(dispatch) {
-//   auth
-//     .signInWithPopup(provider)
-//     .then((payload) => {
-//       console.log("Payload>", payload);
-//       dispatch(setUser(payload.user));
-//     })
-//     .catch((error) => {
-//       console.log("ERROR>", error);
-//       alert(error.message);
-//     });
-// }
+export function getUserAuth() {
+  return (dispatch) => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        dispatch(setUser(user));
+      }
+    });
+  };
+}
