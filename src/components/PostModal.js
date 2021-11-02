@@ -4,13 +4,23 @@ import ReactPlayer from "react-player";
 
 const PostModal = (props) => {
   const [videoLink, setVideoLink] = useState("");
+  const [assetArea, setAssetArea] = useState("");
   const [editorText, setEditorText] = useState("");
   const [shareImage, setShareImage] = useState("");
 
   const { showModal, handleClick } = props;
 
+  const switchAssetArea = (area) => {
+    setShareImage("");
+    setVideoLink("");
+    setAssetArea(area);
+  };
+
   const reset = (e) => {
     setEditorText("");
+    setShareImage("");
+    setVideoLink("");
+    setAssetArea("");
     handleClick(e);
   };
 
@@ -45,39 +55,46 @@ const PostModal = (props) => {
                   onChange={(e) => setEditorText(e.target.value)}
                   autoFocus={true}
                 />
-                <UploadImage>
-                  <input
-                    type="file"
-                    id="file"
-                    name="upload-image"
-                    accept="image/jpg, image/png, image/jpeg"
-                    style={{ display: "none" }}
-                    onChange={handleChange}
-                  />
-                  <p>
-                    <label htmlFor="file">Select an image to share</label>
-                  </p>
-                  {shareImage && <img src={URL.createObjectURL(shareImage)} />}
-                  <>
+                {assetArea === "image" ? (
+                  <UploadImage>
                     <input
-                      type="text"
-                      placeholder="Please input a video link"
-                      value={videoLink}
-                      onChange={(e) => setVideoLink(e.target.value)}
+                      type="file"
+                      id="file"
+                      name="upload-image"
+                      accept="image/jpg, image/png, image/jpeg"
+                      style={{ display: "none" }}
+                      onChange={handleChange}
                     />
-                    {videoLink && (
-                      <ReactPlayer width={"100%"} url={videoLink} />
+                    <p>
+                      <label htmlFor="file">Select an image to share</label>
+                    </p>
+                    {shareImage && (
+                      <img src={URL.createObjectURL(shareImage)} />
                     )}
-                  </>
-                </UploadImage>
+                  </UploadImage>
+                ) : (
+                  assetArea === "media" && (
+                    <>
+                      <input
+                        type="text"
+                        placeholder="Please input a video link"
+                        value={videoLink}
+                        onChange={(e) => setVideoLink(e.target.value)}
+                      />
+                      {videoLink && (
+                        <ReactPlayer width={"100%"} url={videoLink} />
+                      )}
+                    </>
+                  )
+                )}
               </Editor>
             </SharedContent>
             <SharedCreation>
               <AttachAssets>
-                <AssetButton>
+                <AssetButton onClick={() => switchAssetArea("image")}>
                   <img src="/images/shared-img.png" alt="Share Image" />
                 </AssetButton>
-                <AssetButton>
+                <AssetButton onClick={() => switchAssetArea("media")}>
                   <img src="/images/shared-vid.png" alt="Share Asset" />
                 </AssetButton>
               </AttachAssets>
