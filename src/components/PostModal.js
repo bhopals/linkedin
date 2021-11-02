@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { useState } from "react";
+import ReactPlayer from "react-player";
 
 const PostModal = (props) => {
+  const [videoLink, setVideoLink] = useState("");
   const [editorText, setEditorText] = useState("");
   const [shareImage, setShareImage] = useState("");
 
@@ -56,6 +58,17 @@ const PostModal = (props) => {
                     <label htmlFor="file">Select an image to share</label>
                   </p>
                   {shareImage && <img src={URL.createObjectURL(shareImage)} />}
+                  <>
+                    <input
+                      type="text"
+                      placeholder="Please input a video link"
+                      value={videoLink}
+                      onChange={(e) => setVideoLink(e.target.value)}
+                    />
+                    {videoLink && (
+                      <ReactPlayer width={"100%"} url={videoLink} />
+                    )}
+                  </>
                 </UploadImage>
               </Editor>
             </SharedContent>
