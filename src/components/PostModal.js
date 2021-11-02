@@ -72,6 +72,7 @@ const Container = styled.div`
   padding: 0 10px;
   color: black;
   background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s;
 `;
 
 const Content = styled.div`
