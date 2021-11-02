@@ -12,10 +12,27 @@ const PostModal = (props) => {
         </Header>
         <SharedContent>
           <UserInfo>
-            <img src="/images/user.svg" alt="Close" />
+            <img src="/images/user.svg" alt="Name" />
             <span>Name</span>
           </UserInfo>
         </SharedContent>
+        <SharedCreation>
+          <AttachAssets>
+            <AssetButton>
+              <img src="/images/shared-img.png" alt="Share Image" />
+            </AssetButton>
+            <AssetButton>
+              <img src="/images/shared-vid.png" alt="Share Asset" />
+            </AssetButton>
+          </AttachAssets>
+          <ShareComment>
+            <AssetButton>
+              <img src="/images/shared-comment.png" alt="Share Asset" />
+              Anyone
+            </AssetButton>
+          </ShareComment>
+          <PostButton>Button</PostButton>
+        </SharedCreation>
       </Content>
     </Container>
   );
@@ -109,6 +126,46 @@ const UserInfo = styled.div`
     line-height: 1.5;
     margin-left: 5px;
   }
+`;
+
+const SharedCreation = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px 12px 16px;
+`;
+
+const AssetButton = styled.div`
+  display: flex;
+  align-items: center;
+  height: 40px;
+  min-width: auto;
+  color: rgba(0, 0, 0, 0.5);
+`;
+
+const AttachAssets = styled.div`
+  align-items: center;
+  display: flex;
+  padding-right: 8px;
+  ${AssetButton} {
+    width: 40px;
+  }
+`;
+
+const ShareComment = styled.div`
+  padding-left: 8px;
+  margin-right: auto;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  ${AssetButton} {
+    img {
+      margin-right: 5px;
+    }
+  }
+`;
+
+const PostButton = styled.button`
+  min-width: 60px;
+  border-radius: 20px;
+  padding-left: 16px;
 `;
 
 export default PostModal;
