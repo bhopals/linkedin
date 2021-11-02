@@ -3,11 +3,20 @@ import { useState } from "react";
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState("");
+  const [shareImage, setShareImage] = useState("");
 
   const { showModal, handleClick } = props;
+
   const reset = (e) => {
     setEditorText("");
     handleClick(e);
+  };
+
+  const hanldeChange = (e) => {
+    const image = e.target.files[0];
+    if (image === "" || image === undefined) {
+      alert(`not an Image, the file is a ${typeof image}`);
+    }
   };
   return (
     <>
