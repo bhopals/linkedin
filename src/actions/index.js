@@ -52,7 +52,7 @@ export function postArticleAPI(payload) {
         "state_changed",
         (snapshot) => {
           const progress =
-            (snapshot.byteTransferred / snapshot.totalBytes) * 100;
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Progress: ${progress}%`);
           if (snapshot.state === "RUNNING") {
             console.log(`Progress: ${progress}%`);
@@ -75,6 +75,19 @@ export function postArticleAPI(payload) {
           });
         }
       );
+    } else if (payload.video) {
+      db.collection("article").add({
+        actor: {
+          description: payload.user.email,
+          title: payload.user.displayName,
+          date: payload.timestamp,
+          image: payload.user.photoURL,
+        },
+        video: payload.video,
+        sharedImg: "",
+        comments: 0,
+        description: payload.description,
+      });
     }
   };
 }
