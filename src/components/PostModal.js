@@ -12,11 +12,13 @@ const PostModal = (props) => {
     handleClick(e);
   };
 
-  const hanldeChange = (e) => {
+  const handleChange = (e) => {
     const image = e.target.files[0];
     if (image === "" || image === undefined) {
       alert(`not an Image, the file is a ${typeof image}`);
+      return;
     }
+    setShareImage(image);
   };
   return (
     <>
@@ -40,7 +42,21 @@ const PostModal = (props) => {
                   placeholder="What do you want to talk about?"
                   onChange={(e) => setEditorText(e.target.value)}
                   autoFocus={true}
-                ></textarea>
+                />
+                <UploadImage>
+                  <input
+                    type="file"
+                    id="file"
+                    name="upload-image"
+                    accept="image/jpg, image/png, image/jpeg"
+                    style={{ display: "none" }}
+                    onChange={handleChange}
+                  />
+                  <p>
+                    <label htmlFor="file">Select an image to share</label>
+                  </p>
+                  {shareImage && <img src={URL.createObjectURL(shareImage)} />}
+                </UploadImage>
               </Editor>
             </SharedContent>
             <SharedCreation>
@@ -221,6 +237,13 @@ const Editor = styled.div`
     height: 25px;
     font-size: 16px;
     margin-bottom: 20px;
+  }
+`;
+
+const UploadImage = styled.div`
+  text-align: center;
+  img {
+    width: 100%;
   }
 `;
 
