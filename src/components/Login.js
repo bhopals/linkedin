@@ -23,7 +23,7 @@ const Login = (props) => {
         </Hero>
         <Form>
           <Google onClick={() => props.signIn()}>
-            <img src="/images/google.svg" alt="" />
+            <img src="/images/google.svg" alt="" />                                                                                                                                                                                                                                                                 
             Sign in with Google
           </Google>
         </Form>

@@ -14,17 +14,14 @@ const Main = (props) => {
             <img src="/images/photo-icon.png" alt="" />
             <span>Photo</span>
           </button>
-
           <button>
             <img src="/images/video-icon.png" alt="" />
             <span>Video</span>
           </button>
-
           <button>
             <img src="/images/event-icon.png" alt="" />
             <span>Event</span>
           </button>
-
           <button>
             <img src="/images/article-icon.png" alt="" />
             <span>Write article</span>
