@@ -49,7 +49,9 @@ const PostModal = (props) => {
                   Anyone
                 </AssetButton>
               </ShareComment>
-              <PostButton>Post</PostButton>
+              <PostButton disabled={!editorText ? true : false}>
+                Post
+              </PostButton>
             </SharedCreation>
           </Content>
         </Container>
@@ -190,7 +192,7 @@ const PostButton = styled.button`
   padding-left: 16px;
   padding-right: 16px;
   color: white;
-  background: #0a66c2;
+  background: ${(props) => (props.disabled ? "rgba(0,0,0,0.8)" : "#0a66c2")};
   &:hover {
     background: #004182;
   }
