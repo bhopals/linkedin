@@ -4,6 +4,7 @@ import ReactPlayer from "react-player";
 import { connect } from "react-redux";
 import firebase from "firebase";
 import { postArticleAPI } from "./../actions";
+
 const PostModal = (props) => {
   const [videoLink, setVideoLink] = useState("");
   const [assetArea, setAssetArea] = useState("");
@@ -92,7 +93,7 @@ const PostModal = (props) => {
                       <label htmlFor="file">Select an image to share</label>
                     </p>
                     {shareImage && (
-                      <img src={URL.createObjectURL(shareImage)} />
+                      <img src={URL.createObjectURL(shareImage)} alt="" />
                     )}
                   </UploadImage>
                 ) : (

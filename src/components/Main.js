@@ -93,7 +93,9 @@ const Main = (props) => {
           </ShareBox>
 
           <Content>
-            {props.loading && <img src="./images/spin-loading.gif" />}
+            {props.loading && (
+              <img src="./images/spin-loading.gif" alt="spinner" />
+            )}
             {props.articles.length > 0 &&
               props.articles.map((article, key) => (
                 <Article key={key}>
@@ -121,7 +123,9 @@ const Main = (props) => {
                       {!article.sharedImg && article.video ? (
                         <ReactPlayer width={"100%"} url={article.video} />
                       ) : (
-                        article.sharedImg && <img src={article.sharedImg} />
+                        article.sharedImg && (
+                          <img src={article.sharedImg} alt="shared image" />
+                        )
                       )}
                     </a>
                   </SharedImage>
