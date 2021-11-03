@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import PostModal from "./PostModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { getArticleAPI } from "./../actions";
 
 const Main = (props) => {
   const [showModal, setShowModal] = useState("close");
 
+  useEffect(() => {
+    props.getArticles();
+  }, []);
   const handleClick = (e) => {
     e.preventDefault();
     if (e.target !== e.currentTarget) {
@@ -27,8 +32,14 @@ const Main = (props) => {
     <Container>
       <ShareBox>
         <div>
-          <img src="/images/user.svg" alt="" />
-          <button onClick={handleClick}>Start a Post</button>
+          {props.user && props.user.photoURL ? (
+            <img src={props.user.photoURL} alt="" />
+          ) : (
+            <img src="/images/user.svg" alt="" />
+          )}
+          <button disabled={props.loading ? true : false} onClick={handleClick}>
+            Start a Post
+          </button>
         </div>
         <div>
           <button>
@@ -49,7 +60,8 @@ const Main = (props) => {
           </button>
         </div>
       </ShareBox>
-      <div>
+      <Content>
+        {props.loading && <img src="/images/spin-loading.gif" alt="" />}
         <Article>
           <SharedActor>
             <a>
@@ -102,7 +114,7 @@ const Main = (props) => {
             </SocialActions>
           </Description>
         </Article>
-      </div>
+      </Content>
       <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
@@ -311,5 +323,23 @@ const SocialActions = styled.div`
     }
   }
 `;
+const Content = styled.div`
+  text-align: center;
+  & > img {
+    width: 30px;
+  }
+`;
 
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.articleState.loading,
+    user: state.userState.user,
+    articles: state.articleState.articles,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  getArticles: () => dispatch(getArticleAPI()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
