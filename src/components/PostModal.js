@@ -10,7 +10,6 @@ const PostModal = (props) => {
   const [assetArea, setAssetArea] = useState("");
   const [editorText, setEditorText] = useState("");
   const [shareImage, setShareImage] = useState("");
-
   const { showModal, handleClick } = props;
 
   const switchAssetArea = (area) => {
