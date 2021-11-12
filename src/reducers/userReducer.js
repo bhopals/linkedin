@@ -11,6 +11,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         user: action.user,
       };
+      break;
     default:
       return state;
   }

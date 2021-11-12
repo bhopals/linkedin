@@ -12,11 +12,13 @@ const articleReducer = (state = initState, action) => {
         ...state,
         articles: action.payload,
       };
+      break;
     case SET_LOADING_STATUS:
       return {
         ...state,
         loading: action.status,
       };
+      break;
     default:
       return state;
   }
