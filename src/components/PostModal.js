@@ -8,6 +8,7 @@ import { postArticleAPI } from "./../actions";
 const PostModal = (props) => {
   const [videoLink, setVideoLink] = useState("");
   const [assetArea, setAssetArea] = useState("");
+
   const [editorText, setEditorText] = useState("");
   const [shareImage, setShareImage] = useState("");
   const { showModal, handleClick } = props;
