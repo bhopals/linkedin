@@ -6,7 +6,7 @@ Fully response App with a minimal functionality.
 ## Technology Stack
 
 - React
-- Firebase
+- Firebase (Database)
 - Redux
 - Styled Components
 
